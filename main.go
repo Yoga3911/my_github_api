@@ -53,7 +53,7 @@ func getData(c *fiber.Ctx) error {
 	data.Message = github.Commit.Message
 	data.Date = github.Commit.Committer.Date
 
-	tmp := fmt.Sprintf("%v\n%v\n%v\n%v", data.SHA, data.Committer, data.Message, data.Date)
+	tmp := fmt.Sprintf("%v-%v-%v-%v", data.SHA, data.Committer, data.Message, data.Date)
 
 	return c.Status(fiber.StatusOK).SendString(tmp)
 }
