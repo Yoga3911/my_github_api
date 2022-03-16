@@ -34,6 +34,10 @@ type Data struct {
 	Date      time.Time
 }
 
+func first(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusOK).SendString("OK!")
+}
+
 func getData(c *fiber.Ctx) error {
 	_, resp, err := fasthttp.Get(nil, "https://api.github.com/repos/Yoga3911/indogram/commits/main")
 	if err != nil {
@@ -57,6 +61,7 @@ func getData(c *fiber.Ctx) error {
 func main() {
 	app := fiber.New()
 
+	app.Get("/", first)
 	app.Get("/api/yoga3911", getData)
 
 	err := godotenv.Load()
