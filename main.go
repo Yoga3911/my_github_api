@@ -23,8 +23,8 @@ type Commit struct {
 }
 
 type Committer struct {
-	Name    string    `json:"name"`
-	Date    time.Time `json:"date"`
+	Name string    `json:"name"`
+	Date time.Time `json:"date"`
 }
 
 type Data struct {
@@ -53,7 +53,7 @@ func getData(c *fiber.Ctx) error {
 	data.Message = github.Commit.Message
 	data.Date = github.Commit.Committer.Date
 
-	tmp := fmt.Sprintf("%v-%v-%v-%v", data.SHA, data.Committer, data.Message, data.Date)
+	tmp := fmt.Sprintf("Committer: %v\nCommit: %v\nDate: %v\nSHA: %v", data.Committer, data.Message, data.Date, data.SHA)
 
 	return c.Status(fiber.StatusOK).SendString(tmp)
 }
