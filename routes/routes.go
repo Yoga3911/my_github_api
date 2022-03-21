@@ -13,4 +13,5 @@ func first(c *fiber.Ctx) error {
 func Data(app *fiber.App) {
 	app.Get("/", first)
 	app.Get("/api/yoga3911/indogram", apps.Indogram)
+	app.Get("/api/yoga3911/breadify", apps.Breadify)
 }
