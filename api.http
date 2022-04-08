@@ -1,1 +1,1 @@
-GET http://localhost:8080/api/yoga3911
+GET https://api.github.com/repos/Yoga3911/sulai/commits/master
